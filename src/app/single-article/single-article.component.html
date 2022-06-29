@@ -1,0 +1,22 @@
+<div class="container">
+  <h3 class="text-center pb-4">{{articleData.title}}</h3>
+  <div class="row">
+    <div class="col-6">
+      <p>{{articleData.body}}</p>
+      <p>{{articleData.created_at | date }}</p>
+    </div>
+    <div class="col-6">
+      <h4 class="pb-2">Category info:</h4>
+      <p><b>{{ categoryData?.name }}</b></p>
+      <p>{{ categoryData?.description }}</p>
+    </div>
+    <div class="col-12">
+      <h4>Comments:</h4>
+      <div *ngFor="let item of commentsData" class="comment-wrapper">
+        <h5>{{ item.title }}</h5>
+        <p>{{ item.description }}</p>
+        <span>{{ item.created_at | date }}</span>
+      </div>
+    </div>
+  </div>
+</div>

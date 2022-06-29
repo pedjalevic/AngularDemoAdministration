@@ -1,0 +1,31 @@
+<nav class="pagination-container container">
+  <div> Showed {{data?.from}} - {{data?.to}} from {{data?.total}}</div>
+
+  <ul class="pagination">
+    <li class="page-item" *ngIf="data?.firstPage">
+      <button class="page-link" aria-label="Next" (click)="addNewItem(data?.firstPage)">
+        <span aria-hidden="true">&laquo;&laquo;</span>
+      </button>
+    </li>
+    <li class="page-item" *ngIf="data?.prevPageUrl">
+      <button class="page-link"  aria-label="Previous" (click)="addNewItem(data.activePage - 1)">
+        <span aria-hidden="true">&laquo;</span>
+      </button>
+    </li>
+    <li *ngFor="let pag of data?.data" class="page-item {{data.activePage === +pag.label ? 'active' : '' }}">
+      <button class="page-link" (click)="addNewItem(+pag.label)">{{pag.label}}</button>
+    </li>
+    <li class="page-item" *ngIf="data?.nextPageUrl">
+      <button class="page-link" aria-label="Next" (click)="addNewItem(data.activePage + 1)">
+        <span aria-hidden="true">&raquo;</span>
+      </button>
+    </li>
+    <li class="page-item" *ngIf="data?.lastPage">
+      <button class="page-link" aria-label="Next" (click)="addNewItem(data?.lastPage)">
+        <span aria-hidden="true">&raquo;&raquo;</span>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<!-- {{activePage > 0 ? 'active' : '' }} -->

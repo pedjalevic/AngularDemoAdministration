@@ -1,0 +1,22 @@
+<app-navigation></app-navigation>
+
+<h3 class="text-center pb-4">List of articles</h3>
+<div *ngIf="!articlesList">
+  <p>No articles!</p>
+</div>
+
+<div *ngIf="articlesList" class="container">
+  <div class="row">
+    <button class="col-6 article-item" *ngFor="let aticles of articlesList" (click)="openArcticle(aticles.id)">
+      <div class="article-wrapper">
+        <div>
+          <h5>{{ aticles.title }}</h5>
+          <p>{{ aticles.body }}</p>
+        </div>
+        <span>{{ aticles.created_at | date }}</span>
+      </div>
+    </button>
+  </div>
+
+</div>
+<app-pagination [data]="paginationData" (newItemEvent)="addItem($event)"></app-pagination>

@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body w-100 h-100">
+      <h5 class="text-center pb-3">Article info:</h5>
+      <form [formGroup]="articleForm">
+        <div class="row">
+          <div class="col-md-3 py-2 d-flex align-items-center justify-content-end border-right"><label>Id:</label></div>
+          <div class="col-md-6 d-flex align-items-center justify-content-start">
+            <input class="form-control" formControlName="id" type="number" readonly>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 py-2 d-flex align-items-center justify-content-end border-right"><label>Title:</label></div>
+          <div class="col-md-6 d-flex align-items-center justify-content-start">
+            <input class="form-control" formControlName="title" type="text">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 py-2 d-flex align-items-center justify-content-end border-right"><label>Body:</label></div>
+          <div class="col-md-6 d-flex align-items-center justify-content-start">
+            <textarea rows="4" class="form-control" formControlName="body" type="text"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 py-2 d-flex align-items-center justify-content-end border-right"><label>Category:</label></div>
+          <div class="col-md-6 d-flex align-items-center justify-content-start">
+            <select class="form-control" formControlName="categoryId">
+              <option selected></option>
+              <option *ngFor="let category of categoriesList" [ngValue]="category.id">{{category.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="row justify-content-center pt-4">
+          <div title="Add" class="col-md-3 d-flex justify-content-center align-items-center"><a class="btn btn-success" (click)="saveArticle()">&radic;</a></div>
+          <div title="Save" class="col-md-3 d-flex justify-content-center align-items-center"><a class="btn btn-info" (click)="resetForm()">&plus;</a></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<app-navigation></app-navigation>
+
+<h3 class="text-center pb-4">List of categories</h3>
+<div *ngIf="!categoriesList">
+  <p>No categories!</p>
+</div>
+
+<div *ngIf="categoriesList" class="container">
+  <div class="row">
+    <div class="col-12 article-item" *ngFor="let category of categoriesList">
+      <div class="article-wrapper">
+        <h5>{{ category.name }}</h5>
+        <p>{{ category.description }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<app-pagination [data]="paginationData" (newItemEvent)="addItem($event)"></app-pagination>
